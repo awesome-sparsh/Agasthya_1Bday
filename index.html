@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Happy 1st Birthday, Little Star! 🎈</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Fredoka & Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 50%, #fff9e6 100%);
+            overflow-x: hidden;
+            /* Safe area padding for notched iPhones */
+            padding-top: env(safe-area-inset-top);
+            padding-bottom: env(safe-area-inset-bottom);
+            padding-left: env(safe-area-inset-left);
+            padding-right: env(safe-area-inset-right);
+        }
+        h1, h2, h3, .font-heading {
+            font-family: 'Fredoka', cursive, sans-serif;
+        }
+        /* Floating Balloons Animation optimized for mobile */
+        @keyframes floatUp {
+            0% {
+                transform: translateY(105vh) scale(0.8) rotate(0deg);
+                opacity: 0.85;
+            }
+            50% {
+                opacity: 0.95;
+            }
+            100% {
+                transform: translateY(-15vh) scale(1.05) rotate(10deg);
+                opacity: 0;
+            }
+        }
+        .balloon {
+            position: absolute;
+            bottom: -120px;
+            width: 42px;
+            height: 55px;
+            border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+            background: radial-gradient(circle at 30% 30%, #60a5fa, #1d4ed8);
+            box-shadow: inset -5px -5px 12px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(29, 78, 216, 0.25);
+            animation: floatUp 10s infinite linear;
+            z-index: 1;
+            will-change: transform;
+        }
+        .balloon::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 18px;
+            width: 3px;
+            height: 10px;
+            background: #1d4ed8;
+        }
+        .balloon::before {
+            content: "";
+            position: absolute;
+            bottom: -18px;
+            left: 8px;
+            width: 26px;
+            height: 12px;
+            border-bottom: 2px solid #93c5fd;
+            border-radius: 50%;
+        }
+        /* Polaroid touch responsiveness */
+        .polaroid {
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .polaroid:active {
+            transform: scale(0.98);
+        }
+        /* Confetti piece */
+        @keyframes fall {
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(105vh) rotate(360deg); opacity: 0.3; }
+        }
+        .confetti {
+            position: fixed;
+            width: 8px;
+            height: 12px;
+            background-color: #f6d55c;
+            animation: fall linear infinite;
+            z-index: 50;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="relative min-h-screen text-slate-700 flex flex-col justify-between selection:bg-blue-200">
+
+    <!-- Floating Background Balloons Container (Optimized for iPhone screens) -->
+    <div id="balloon-container" class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="balloon" style="left: 8%; animation-duration: 9s; animation-delay: 0s; background: radial-gradient(circle at 30% 30%, #93c5fd, #2563eb);"></div>
+        <div class="balloon" style="left: 28%; animation-duration: 11s; animation-delay: 2s; background: radial-gradient(circle at 30% 30%, #60a5fa, #1d4ed8);"></div>
+        <div class="balloon" style="left: 50%; animation-duration: 8.5s; animation-delay: 1s; background: radial-gradient(circle at 30% 30%, #bae6fd, #0284c7);"></div>
+        <div class="balloon" style="left: 72%; animation-duration: 10s; animation-delay: 3s; background: radial-gradient(circle at 30% 30%, #93c5fd, #3b82f6);"></div>
+        <div class="balloon" style="left: 88%; animation-duration: 12s; animation-delay: 1.5s; background: radial-gradient(circle at 30% 30%, #bfdbfe, #1d4ed8);"></div>
+    </div>
+
+    <!-- Header / Hero Section -->
+    <header class="relative z-10 text-center pt-8 pb-4 px-4 sm:pt-12 sm:pb-6">
+        <div class="inline-flex items-center gap-2 bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-full shadow-sm text-blue-600 font-medium text-xs sm:text-sm mb-3 border border-blue-100 animate-bounce">
+            <i class="fa-solid fa-cake-candles text-amber-500"></i> Hip Hip Hooray, It's a Celebration!
+        </div>
+        <h1 class="text-3xl sm:text-5xl md:text-6xl font-bold text-slate-800 tracking-wide drop-shadow-sm mb-2 sm:mb-3">
+            Happy 1st Birthday, <br class="inline"/><span class="text-blue-600">AGASTHYA! 🎈</span>
+        </h1>
+        <p class="text-base sm:text-lg md:text-xl text-slate-600 max-w-md sm:max-w-xl mx-auto font-medium px-2">
+            Celebrating 365 days of giggles, cuddles, and absolute magic in our lives.
+        </p>
+    </header>
+
+    <!-- Main Content: Photo Polaroids & Thoughtful Message -->
+    <main class="relative z-10 max-w-4xl mx-auto px-4 py-4 sm:py-6 w-full flex-grow flex flex-col gap-6 sm:gap-10">
+
+        <!-- Polaroid Photo Grid optimized for iPhone touch and portrait viewing -->
+        <div class="grid grid-cols-2 gap-3 sm:gap-6">
+            
+            <!-- Polaroid 1 -->
+            <div class="polaroid bg-white p-2.5 pb-4 sm:p-3 sm:pb-5 rounded-2xl shadow-md border border-slate-100 transform -rotate-1">
+                <div class="relative bg-slate-900 h-40 sm:h-56 rounded-xl overflow-hidden flex items-center justify-center border border-blue-100">
+                    <img src="agu_1.jpeg" alt="Baby Photo 1" class="w-full h-full object-contain" onerror="this.src='https://placehold.co/300x350/e0f2fe/0284c7?text=Little+Star'">
+                    <div class="absolute top-2 right-2 bg-amber-300 text-amber-900 text-[10px] sm:text-xs font-bold px-2 py-0.5 sm:py-1 rounded-full shadow">
+                    </div>
+                </div>
+                <div class="mt-2.5 sm:mt-3 text-center font-heading text-slate-700 font-semibold text-sm sm:text-lg">
+                    Nathkhat Balak 😊
+                </div>
+            </div>
+
+            <!-- Polaroid 2 -->
+            <div class="polaroid bg-white p-2.5 pb-4 sm:p-3 sm:pb-5 rounded-2xl shadow-md border border-slate-100 transform rotate-1">
+                <div class="relative bg-slate-900 h-40 sm:h-56 rounded-xl overflow-hidden flex items-center justify-center border border-blue-100">
+                    <img src="agu_2.jpeg" alt="Baby Photo 2" class="w-full h-full object-contain" onerror="this.src='https://placehold.co/300x350/dbeafe/1d4ed8?text=Explorer'">
+                    <div class="absolute top-2 right-2 bg-amber-300 text-amber-900 text-[10px] sm:text-xs font-bold px-2 py-0.5 sm:py-1 rounded-full shadow">
+                    </div>
+                </div>
+                <div class="mt-2.5 sm:mt-3 text-center font-heading text-slate-700 font-semibold text-sm sm:text-lg">
+                    Cutiepiee 🚀
+                </div>
+            </div>
+
+            <!-- Polaroid 3 -->
+            <div class="polaroid bg-white p-2.5 pb-4 sm:p-3 sm:pb-5 rounded-2xl shadow-md border border-slate-100 transform rotate-1">
+                <div class="relative bg-slate-900 h-40 sm:h-56 rounded-xl overflow-hidden flex items-center justify-center border border-blue-100">
+                    <img src="agu_3.jpeg" alt="Baby Photo 3" class="w-full h-full object-contain" onerror="this.src='https://placehold.co/300x350/eff6ff/3b82f6?text=Growing+Up'">
+                    <div class="absolute top-2 right-2 bg-amber-300 text-amber-900 text-[10px] sm:text-xs font-bold px-2 py-0.5 sm:py-1 rounded-full shadow">
+                    </div>
+                </div>
+                <div class="mt-2.5 sm:mt-3 text-center font-heading text-slate-700 font-semibold text-sm sm:text-lg">
+                    Million Dollar Smile 🌟
+                </div>
+            </div>
+
+            <!-- Polaroid 4 -->
+            <div class="polaroid bg-white p-2.5 pb-4 sm:p-3 sm:pb-5 rounded-2xl shadow-md border border-slate-100 transform -rotate-1">
+                <div class="relative bg-slate-900 h-40 sm:h-56 rounded-xl overflow-hidden flex items-center justify-center border border-blue-100">
+                    <img src="agu_4.jpeg" alt="Baby Photo 4" class="w-full h-full object-contain" onerror="this.src='https://placehold.co/300x350/e0f2fe/0369a1?text=Birthday+Boy'">
+                    <div class="absolute top-2 right-2 bg-amber-300 text-amber-900 text-[10px] sm:text-xs font-bold px-2 py-0.5 sm:py-1 rounded-full shadow">
+                        
+                    </div>
+                </div>
+                <div class="mt-2.5 sm:mt-3 text-center font-heading text-slate-700 font-semibold text-sm sm:text-lg">
+                    Birthday Boy 👑
+                </div>
+            </div>
+
+            <!-- Polaroid 5 -->
+            <div class="polaroid bg-white p-2.5 pb-4 sm:p-3 sm:pb-5 rounded-2xl shadow-md border border-slate-100 transform -rotate-1">
+                <div class="relative bg-slate-900 h-40 sm:h-56 rounded-xl overflow-hidden flex items-center justify-center border border-blue-100">
+                    <img src="fam_1.jpeg" alt="Family Photo 1" class="w-full h-full object-contain" onerror="this.src='https://placehold.co/300x350/e0f2fe/0369a1?text=Family+Love'">
+                    <div class="absolute top-2 right-2 bg-amber-300 text-amber-900 text-[10px] sm:text-xs font-bold px-2 py-0.5 sm:py-1 rounded-full shadow">
+                        
+                    </div>
+                </div>
+                <div class="mt-2.5 sm:mt-3 text-center font-heading text-slate-700 font-semibold text-sm sm:text-lg">
+                    Family Hugs ❤️
+                </div>
+            </div>
+
+            <!-- Polaroid 6 -->
+            <div class="polaroid bg-white p-2.5 pb-4 sm:p-3 sm:pb-5 rounded-2xl shadow-md border border-slate-100 transform rotate-1">
+                <div class="relative bg-slate-900 h-40 sm:h-56 rounded-xl overflow-hidden flex items-center justify-center border border-blue-100">
+                    <img src="fam_2.jpeg" alt="Family Photo 2" class="w-full h-full object-contain" onerror="this.src='https://placehold.co/300x350/e0f2fe/0369a1?text=Precious+Moments'">
+                    <div class="absolute top-2 right-2 bg-amber-300 text-amber-900 text-[10px] sm:text-xs font-bold px-2 py-0.5 sm:py-1 rounded-full shadow">
+                        
+                    </div>
+                </div>
+                <div class="mt-2.5 sm:mt-3 text-center font-heading text-slate-700 font-semibold text-sm sm:text-lg">
+                    Precious Moments ✨
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Thoughtful Message Card -->
+        <div class="bg-white/95 backdrop-blur-md rounded-2xl p-5 sm:p-8 shadow-xl border border-blue-100 text-center mx-auto relative overflow-hidden">
+            <!-- Decorative badge -->
+            <div class="absolute -top-10 -right-10 w-24 h-24 bg-blue-100 rounded-full opacity-50 pointer-events-none"></div>
+            <div class="absolute -bottom-10 -left-10 w-24 h-24 bg-amber-100 rounded-full opacity-50 pointer-events-none"></div>
+
+            <div class="inline-block p-3 bg-blue-50 text-blue-600 rounded-full text-xl sm:text-2xl mb-3 shadow-inner">
+                <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+
+            <h2 class="text-xl sm:text-3xl font-bold text-slate-800 mb-3 font-heading">
+                A Special Message from Chachaji
+            </h2>
+
+            <p class="text-slate-600 text-sm sm:text-lg leading-relaxed mb-6 font-normal">
+                           To my favorite little explorer: Today you turn one, and it feels like just yesterday you arrived and brought joy to my life. Your infec tious smile, your curious eyes, and your sweet little hugs are the greatest gifts i could ever ask for. May your life ahead be filled with boundless joy, limitless wonder, adventures around every corner, and all the love your heart can hold. I am so lucky to watch you grow!
+            </p>
+
+            <div class="flex flex-wrap items-center justify-center gap-4 pt-1">
+                <button onclick="triggerConfettiBurst()" class="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold px-6 py-3.5 rounded-full shadow-lg active:scale-95 transition flex items-center justify-center gap-2 cursor-pointer text-base">
+                    <i class="fa-solid fa-wand-magic-sparkles text-amber-300"></i> Send Birthday Magic!
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 text-center py-5 text-slate-500 text-xs sm:text-sm border-t border-blue-100/60 bg-white/50 mt-6">
+        <p>Made with endless love for the cutest 1-year-old nephew in the world. ❤️</p>
+    </footer>
+
+    <!-- Interactive JS Script for Confetti & Touch Optimization -->
+    <script>
+        // Function to create random confetti on demand
+        function triggerConfettiBurst() {
+            const colors = ['#3b82f6', '#60a5fa', '#f59e0b', '#fbbf24', '#6366f1', '#93c5fd'];
+            const count = window.innerWidth < 640 ? 35 : 60;
+            
+            for (let i = 0; i < count; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                confetti.style.left = Math.random() * window.innerWidth + 'px';
+                confetti.style.top = '-20px';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                confetti.style.animationDuration = (Math.random() * 1.8 + 1.2) + 's';
+                confetti.style.animationTimingFunction = 'ease-out';
+                document.body.appendChild(confetti);
+
+                setTimeout(() => {
+                    confetti.remove();
+                }, 3000);
+            }
+        }
+
+        // Trigger gentle confetti burst on page load
+        window.onload = function() {
+            setTimeout(triggerConfettiBurst, 600);
+        };
+    </script>
+</body>
+</html>
